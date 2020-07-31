@@ -1,7 +1,9 @@
 variable "region" {}
 variable "secret_key" {}
 variable "access_key" {}
-variable "ssh_public_key" {}
+variable "ssh_public_key" {
+  default = "config/id_rsa.pub"
+}
 variable "dns_zone_id" {}
 
 variable "instance_type" {
@@ -22,5 +24,5 @@ variable "amis" {
 }
 
 variable "dns_name" {
-  default = "registry.slowcoder.com"
+  default = "registry.vrumvrum.com.br"
 }

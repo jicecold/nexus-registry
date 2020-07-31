@@ -49,7 +49,7 @@ resource "aws_security_group" "default" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name = "registry_security_group"
   }
 }
@@ -70,9 +70,9 @@ resource "aws_instance" "default" {
   key_name        = "${aws_key_pair.default.id}"
   security_groups = ["${aws_security_group.default.name}"]
 
-  user_data = "${file("setup.sh")}"
+  user_data = "${file("config/setup.sh")}"
 
-  tags {
+  tags = {
     Name = "registry"
   }
 }
